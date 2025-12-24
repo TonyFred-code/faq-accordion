@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans";
+  font-size: 16px;
+  color: var(--color-purple-950);
+}
+
+@theme {
+  --color-white: hsl(0, 100%, 100%);
+
+  --color-purple-100: hsl(275, 100%, 97%);
+  --color-purple-600: hsl(292, 16%, 49%);
+  --color-purple-950: hsl(292, 42%, 14%);
+
+  --font-work-sans: "Work Sans", sans-serif;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-weight: 400 600 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+}
