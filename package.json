@@ -1,8 +1,15 @@
 {
   "name": "faq-accordion-main",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TonyFred-code/faq-accordion"
+  },
+  "bugs": {
+    "url": "https://github.com/TonyFred-code/faq-accordion/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
