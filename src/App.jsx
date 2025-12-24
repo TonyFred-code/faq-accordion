@@ -66,7 +66,7 @@ export default function App() {
                     type="button"
                     className="font-semibold hover:text-purple-700 cursor-pointer flex justify-between items-center py-3 gap-3 w-full text-left"
                     onClick={() => makeActive(id)}
-                    aria-expanded={isActive}
+                    aria-expanded={isActive ? "true" : "false"}
                     aria-controls={`tab-content-${id}`}
                   >
                     <span className="shrink max-w-5/6 md:max-w-11/12">
@@ -75,7 +75,7 @@ export default function App() {
                     <span className="flex size-6">
                       <img
                         src={`${isActive ? "/assets/icon-minus.svg" : "/assets/icon-plus.svg"}`}
-                        alt=""
+                        alt={isActive ? "Collapse Section" : "Expand Section"}
                         className="w-full"
                       />
                     </span>
