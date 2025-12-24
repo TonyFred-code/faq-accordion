@@ -38,7 +38,7 @@ Solution Built:
 ### Links
 
 - Solution URL: [GitHub Source Code](https://github.com/TonyFred-code/faq-accordion/)
-- Live Site URL: [Vercel Deployed Demo](https://)
+- Live Site URL: [Vercel Deployed Demo](https://faq-accordion-beryl-five.vercel.app/)
 
 ## Built with
 
