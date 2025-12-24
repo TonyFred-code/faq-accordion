@@ -30,11 +30,13 @@ export default function App() {
     },
   ];
 
+  function isActiveId(id) {
+    return activeTabIds.includes(id);
+  }
+
   function makeActive(id) {
-    if (activeTabIds.includes(id)) {
-      const updatedTabs = activeTabIds.filter((tabId) => tabId !== id);
-      console.log(updatedTabs);
-      setActiveTabIds(updatedTabs);
+    if (isActiveId(id)) {
+      setActiveTabIds(activeTabIds.filter((tabId) => tabId !== id));
       return;
     }
 
@@ -52,29 +54,36 @@ export default function App() {
           {tabs.map((tab) => {
             const { id, content, tabPanel } = tab;
 
+            const isActive = isActiveId(id);
+
             return (
               <div
                 key={id}
-                className="not-last:border-b not-last:border-purple-100"
+                className="border-b border-purple-100 last:border-none"
               >
-                <h2
-                  role="button"
-                  className="font-semibold hover:text-purple-700 cursor-pointer flex justify-between items-center py-3 gap-3"
-                  onClick={() => makeActive(id)}
-                >
-                  <span className="shrink max-w-5/6 md:max-w-11/12">
-                    {tabPanel}
-                  </span>
-                  <span className="flex size-6">
-                    <img
-                      src={`${activeTabIds.includes(id) ? "/assets/icon-minus.svg" : "/assets/icon-plus.svg"}`}
-                      alt=""
-                      className="w-full"
-                    />
-                  </span>
+                <h2>
+                  <button
+                    type="button"
+                    className="font-semibold hover:text-purple-700 cursor-pointer flex justify-between items-center py-3 gap-3 w-full text-left"
+                    onClick={() => makeActive(id)}
+                    aria-expanded={isActive}
+                    aria-controls={`tab-content-${id}`}
+                  >
+                    <span className="shrink max-w-5/6 md:max-w-11/12">
+                      {tabPanel}
+                    </span>
+                    <span className="flex size-6">
+                      <img
+                        src={`${isActive ? "/assets/icon-minus.svg" : "/assets/icon-plus.svg"}`}
+                        alt=""
+                        className="w-full"
+                      />
+                    </span>
+                  </button>
                 </h2>
                 <p
-                  className={`${activeTabIds.includes(id) ? "h-fit py-3" : "h-0"} transition-all duration-300 ease-in-out text-purple-600 font-normal overflow-hidden`}
+                  id={`tab-content-${id}`}
+                  className={`${isActive ? "h-fit py-3" : "h-0"} transition-all duration-300 ease-in-out text-purple-600 font-normal overflow-hidden`}
                 >
                   {content}
                 </p>
